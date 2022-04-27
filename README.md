@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+- Veja o design do projeto no link abaixo 
+- Escolha um dos níveis abaixo como base e desenvolva a tela como no exemplo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+Desafio nível 1
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Funcionalidades principais:
 
-### `npm test`
+    ~Layout completo - deixar o desafio o mais próximo possível do XD~
+    Menu "Categorias" - adicionar :hover no menu "Categorias" mostrando a Rota "TODOS" funcionando e renderizando todos os filmes adicionados
+    Botão de adicionar filme - adicionar :hover com bordas (botão apenas visual, sem interação)
+    Filter - Filtro funcionando e mostrando na tela o item procurado
+    Carrossel - girando para a esquerda, mostrando os filmes adicionados
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Desafio nível 2
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Funcionalidades principais:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    Todos os itens do nível 1 devem estar completos antes de avançar para o nível 2
+    Menu "Categorias" - adicionar a Rota "FAVORITOS" funcionando e renderizando todos os filmes favoritados
+    Botão de adicionar filme - ao clicar, deve aparecer uma caixa contendo os inputs mas não é preciso estar funcional (apenas a marcação da caixa e dos itens)
+    Botão de adicionar aos favoritos - ao clicar, o filme selecionado deve ser mostrado na Rota dos filmes favoritos
+    Carrossel - ao clicar em algum item do carrossel, deve aparecer uma caixa com informações sobre o filme selecionado e as estrelas (star rating) funcionando
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Desafio nível 3
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Funcionalidades principais:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    Todos os itens do nível 1 e 2 devem estar completos antes de avançar para o nível 3
+    Menu "Categorias" - adicionar as Rotas "JÁ VISTOS" e "ADICIONADOS" funcionando e renderizando todos os filmes já vistos e adicionados
+    Botão de adicionar - ao clicar, deve aparecer uma caixa contendo os inputs de forma funcional (adicionando os dados dos filmes na Rota "TODOS")
+    Carrossel - ao clicar em algum item do carrossel, deve aparecer uma caixa com informações sobre o filme selecionado e também a caixa para editar um filme já adicionado anteriormente
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+**Funcionalidade extra:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    Dependendo do número de estrelas dadas ao filme, a cor do botão de like muda de acordo com a pontuação exemplificada no XD.

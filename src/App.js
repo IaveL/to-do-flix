@@ -4,17 +4,28 @@ import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import AllMovies from "./pages/AllMovies";
 import HeaderModal from "./components/HeaderModal";
-import styled from "styled-components"
-import { NavBar, NavItem, Dropdown, HeaderBox, TitleBox, Title, SearchBox, SearchInput, DropdownItem} from "./assets/styles";
+import styled from "styled-components";
+import {
+  NavBar,
+  NavItem,
+  Dropdown,
+  HeaderBox,
+  TitleBox,
+  Title,
+  SearchBox,
+  SearchInput,
+  DropdownItem,
+} from "./assets/styles";
 import profile from "./assets/images/profile.svg";
 import shrek from "./assets/images/shrek.png";
 import sozinho from "./assets/images/sozinho.png";
 import spider from "./assets/images/spider-man.png";
 import liberdade from "./assets/images/sonho.png";
 import horas from "./assets/images/horas.png";
-import fuga from "./assets/images/fuga.jpeg"
-import rocketman from "./assets/images/rocketman.jpeg"
-import amarelo from "./assets/images/amarelo.jpeg"
+import fuga from "./assets/images/fuga.jpeg";
+import rocketman from "./assets/images/rocketman.jpeg";
+import amarelo from "./assets/images/amarelo.jpeg";
+import dropdown from "./assets/images/dropdown.svg";
 const GlobalStyle = createGlobalStyle`
   *{
     box-sizing: border-box;
@@ -33,10 +44,17 @@ const GlobalStyle = createGlobalStyle`
 const Anchor = styled(Link)`
   text-decoration: none;
   color: #fff;
-    & :hover {
-      background-color:  #525252;
-    }
-  `
+  & :hover {
+    background-color: #525252;
+  }
+`;
+const DropdownIcon = styled.img`
+  right: 25px;
+  position: relative;
+  :hover {
+    cursor: pointer;
+  }
+`;
 export default class App extends React.Component {
   state = {
     dropdownState: false,
@@ -77,25 +95,28 @@ export default class App extends React.Component {
           "Val é a fiel empregada domestica de uma família rica. Mas a chegada de sua filha gera tensão na casa e faz com que ela comece a questionar esse papel.",
       },
       {
-          id: 6,
-          img: fuga,
-          title: "A Fuga das Galinhas",
-          overview: "O galo Rocky e a galinha Ginger querem ajudar todas as outras galinhas a fugirem da granja onde vivem em cativeiro.",
+        id: 6,
+        img: fuga,
+        title: "A Fuga das Galinhas",
+        overview:
+          "O galo Rocky e a galinha Ginger querem ajudar todas as outras galinhas a fugirem da granja onde vivem em cativeiro.",
       },
       {
-          id: 7,
-          img: amarelo,
-          title: "AmarElo",
-          overview: "Nos bastidores do show no Theatro Municipal de São Paulo, o rapper e ativista Emicida celebra o grande legado da cultura negra brasileira.",
+        id: 7,
+        img: amarelo,
+        title: "AmarElo",
+        overview:
+          "Nos bastidores do show no Theatro Municipal de São Paulo, o rapper e ativista Emicida celebra o grande legado da cultura negra brasileira.",
       },
       {
-          id: 8,
-          img: rocketman,
-          title: "Rocketman",
-          overview: "Em reabilitação, Elton John relembra suas origens humildes, as músicas atemporais e os momentos de inspiração e excesso. Baseado em sua verdadeira história.",
+        id: 8,
+        img: rocketman,
+        title: "Rocketman",
+        overview:
+          "Em reabilitação, Elton John relembra suas origens humildes, as músicas atemporais e os momentos de inspiração e excesso. Baseado em sua verdadeira história.",
       },
     ],
-    filteredMovies: []
+    filteredMovies: [],
   };
 
   componentDidMount() {
@@ -126,34 +147,47 @@ export default class App extends React.Component {
       <Router>
         <GlobalStyle />
         <HeaderBox>
-        <TitleBox>
-          <Title>TODOFLIX</Title>
-          <NavBar>
-            <NavItem><Anchor to ="/">Início</Anchor></NavItem>
-            <NavItem onMouseEnter={this.handleList}>
-              Categorias
-              {this.state.dropdownState && (
-                <Dropdown onMouseLeave={this.handleList}>
-                  <DropdownItem><Anchor to="/AllMovies">Todos</Anchor></DropdownItem>
-                  <DropdownItem>Favoritos</DropdownItem>
-                  <DropdownItem>Já vistos</DropdownItem>
-                  <DropdownItem>Adicionados</DropdownItem>
-                </Dropdown>
-              )}
-            </NavItem>
-          </NavBar>
-        </TitleBox>
-        <SearchBox>
-          <HeaderModal/> 
-          {/* ^^ modal de adicionar filmes */}
-          <SearchInput type="text" placeholder="        Pesquisar" onChange={this.search}/>
-          <img src={profile} />
-        </SearchBox>
-      </HeaderBox>
+          <TitleBox>
+            <Title>TODOFLIX</Title>
+            <NavBar>
+              <NavItem>
+                <Anchor to="/">Início</Anchor>
+              </NavItem>
+              <NavItem onMouseEnter={this.handleList}>
+                Categorias
+                {this.state.dropdownState && (
+                  <Dropdown onMouseLeave={this.handleList}>
+                    <DropdownItem>
+                      <Anchor to="/AllMovies">Todos</Anchor>
+                    </DropdownItem>
+                    <DropdownItem>Favoritos</DropdownItem>
+                    <DropdownItem>Já vistos</DropdownItem>
+                    <DropdownItem>Adicionados</DropdownItem>
+                  </Dropdown>
+                )}
+              </NavItem>
+            </NavBar>
+            <DropdownIcon
+              src={dropdown}
+              onMouseEnter={this.handleList}
+              onMouseLeave={this.handleList}
+            />
+          </TitleBox>
+          <SearchBox>
+            <HeaderModal />
+            {/* ^^ modal de adicionar filmes */}
+            <SearchInput
+              type="text"
+              placeholder="        Pesquisar"
+              onChange={this.search}
+            />
+            <img src={profile} alt="Imagem do outro filme" />
+          </SearchBox>
+        </HeaderBox>
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/AllMovies" element={<AllMovies/>}/>
+          <Route path="/AllMovies" element={<AllMovies />} />
         </Routes>
       </Router>
     );

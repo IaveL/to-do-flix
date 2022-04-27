@@ -2,10 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import shrek from "../assets/images/shrek.png";
+import magnifier from "../assets/images/search-icon.svg"
 import sozinho from "../assets/images/sozinho.png";
 import spider from "../assets/images/spider-man.png";
 import liberdade from "../assets/images/sonho.png";
 import horas from "../assets/images/horas.png";
+import favbutton from "../assets/images/favbutton.svg"
 import fuga from "../assets/images/fuga.jpeg";
 import rocketman from "../assets/images/rocketman.jpeg";
 import amarelo from "../assets/images/amarelo.jpeg";
@@ -16,7 +18,37 @@ import {
   MovieTitle,
   SearchBox,
   SearchInput,
+  FavIconBox,
+  FavIconSvg
 } from "../assets/styles";
+
+
+const SearchAllInput = styled.input`
+  position: relative;
+  z-index: 1;
+  left: 53.7vw;
+  bottom: 4.5vw;
+  height: 40px;
+  background-color: #2c2c2c;
+  background-image: url(${magnifier});
+  background-repeat: no-repeat;
+  background-position: 3%;
+  width: 400px;
+  border-radius: 4px;
+  border: none;
+  color: white;
+  text-align: left;
+  :focus {
+    background-image: none;
+    border: none;
+  }
+`
+const Todos = styled.h2`
+  color: #fff;
+  display: inline;
+  position: relative;
+  top: 50px;
+`
 
 export default class AllMovies extends React.Component {
   state = {
@@ -103,8 +135,9 @@ export default class AllMovies extends React.Component {
   render() {
     return (
       <>
+      <Todos>Todos</Todos>
         <SearchBox>
-          <SearchInput
+          <SearchAllInput
             type="text"
             placeholder="        Pesquisar"
             onChange={this.search}
@@ -113,6 +146,8 @@ export default class AllMovies extends React.Component {
         <AllMoviesBox>
           {this.state.filteredMovies.map((item) => (
             <MoviesComplete>
+              <FavIconBox>
+              <FavIconSvg src={favbutton}/>
               <Cover
                 key={item.id}
                 onClick={() => {
@@ -120,6 +155,7 @@ export default class AllMovies extends React.Component {
                 }}
                 src={item.img}
               />
+              </FavIconBox>
               <MovieTitle>{item.title}</MovieTitle>
               <p>{item.overview}</p>
             </MoviesComplete>

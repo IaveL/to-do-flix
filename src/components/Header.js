@@ -8,13 +8,13 @@ import {
   NavBar,
   Dropdown,
   NavItem,
-
 } from "../assets/styles";
 import profile from "../assets/images/profile.svg";
-import dropdown from "../assets/images/dropdown.svg"
 import React from "react";
 import HeaderModal from "./HeaderModal";
 import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+
+
 
 export default class Header extends React.Component {
   state = {
@@ -24,7 +24,6 @@ export default class Header extends React.Component {
   handleList = () => {
     this.setState({ dropdownState: !this.state.dropdownState });
   };
-
 
   render() {
     return (
@@ -43,13 +42,16 @@ export default class Header extends React.Component {
                   <li>Adicionados</li>
                 </Dropdown>
               )}
-                          <img src={dropdown}/>
             </NavItem>
           </NavBar>
         </TitleBox>
         <SearchBox>
-          <HeaderModal/>
-          <SearchInput type="text" placeholder="        Pesquisar" onChange={this.search} />
+          <HeaderModal />
+          <SearchInput
+            type="text"
+            placeholder="        Pesquisar"
+            onChange={this.search}
+          />
           <img src={profile} />
           {/* (to-do: remover a borda do input ao focar nele) */}
         </SearchBox>

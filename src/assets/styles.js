@@ -176,7 +176,7 @@ export const HeaderModalButtons = styled.button`
   }
 `;
 export const HeaderModalClose = styled.button`
-    margin: 10px;
+  margin: 10px;
   font-weight: bolder;
   background-color: black;
   border: none;
@@ -187,24 +187,24 @@ export const HeaderModalClose = styled.button`
   &:hover {
     cursor: pointer;
   }
-`
+`;
 export const AddImg = styled.img`
   width: 220px;
   margin-bottom: 50px;
-`
+`;
 export const AddImgButton = styled.button`
   height: 35px;
   border-radius: 4px;
   border: none;
   width: 150px;
   margin-bottom: 125px;
-`
+`;
 export const CloseButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: end;
   color: white;
-`
+`;
 export const CloseHeaderModalBtn = styled.button`
   color: #fff;
   border: none;
@@ -213,63 +213,63 @@ export const CloseHeaderModalBtn = styled.button`
   height: 25px;
   & :hover {
     cursor: pointer;
-    transform: scale(1.1)
+    transform: scale(1.1);
   }
-`
+`;
 export const ModalWrapper = styled.div`
   height: 100%;
   display: flex;
   height: fit-content;
   justify-content: space-around;
-`
+`;
 export const AddImgBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 35%;
   height: fit-content;
   justify-content: first baseline;
-`
+`;
 export const DropdownItem = styled.li`
   :hover {
     background-color: #525252;
     transform: scale(1.1);
   }
-`
+`;
 export const RatingBox = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 220px;
-`
+`;
 export const AllMoviesBox = styled.div`
   display: flex;
   width: fit-content;
   height: fit-content;
   justify-content: space-evenly;
   align-items: center;
-  margin-top: 85px;
+  margin-top: 50px;
   flex-wrap: wrap;
-`
+`;
 export const MoviesComplete = styled.div`
   width: 23%;
   display: flex;
   color: #fff;
   flex-direction: column;
   justify-content: center;
-  padding: 15px; 
-`
+  padding: 15px;
+`;
 export const FavIconBox = styled.div`
   display: flex;
   justify-content: flex-end;
   position: relative;
   z-index: 1;
   width: fit-content;
-`
+`;
 export const FavIconSvg = styled.img`
-    position: absolute;
-    margin: 3px; 
-    z-index: 2;
-       :hover {
-        cursor: pointer;
-      }
-`
+  position: absolute;
+  margin: 3px;
+  z-index: 2;
+  :hover {
+    cursor: pointer;
+  }
+`;

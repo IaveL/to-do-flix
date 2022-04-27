@@ -31,11 +31,7 @@ export default class HeaderModal extends React.Component {
       isHalf: true,
       activeColor: "#daa520",
       onChange: (newValue) => {
-        if(this.state.headerModal === true){
         this.setState({starNum: newValue})
-      }else{
-        this.setState({starNum: 0})
-      }
       }
     }
   };

@@ -1,7 +1,10 @@
+import React from "react";
 import styled from "styled-components";
 import { RecentBox, RecentImg, RecentMovie, RecentInfo, RecentTitle, RecentText } from "../assets/styles";
 import Captain from "../assets/images/capitao-fantastico.png";
 import favourite from "../assets/images/favourite.svg"
+
+
 export default function Recently() {
   return (
     <RecentBox>
