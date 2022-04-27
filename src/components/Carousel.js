@@ -9,6 +9,12 @@ import {
   HighlightsWrapper,
   FavIconBox,
   FavIconSvg,
+  CloseHeaderModalBtn,
+  CarouselModalCover,
+  CarouselModalWrapper,
+  RatingBox,
+  ModalOptionsBox,
+  HasWatchedBtn,
 } from "../assets/styles";
 import shrek from "../assets/images/shrek.png";
 import sozinho from "../assets/images/sozinho.png";
@@ -18,6 +24,9 @@ import horas from "../assets/images/horas.png";
 import favbutton from "../assets/images/favbutton.svg";
 import Carousel from "nuka-carousel";
 import Modal from "react-modal";
+import ReactStars from "react-rating-stars-component";
+import favourite from "../assets/images/favourite.svg";
+import optionsbutton from "../assets/images/optionsmodal.png";
 
 Modal.setAppElement("body");
 
@@ -38,6 +47,10 @@ const Arrow = styled.svg`
   &:hover {
     opacity: 1;
   }
+`;
+
+const FavIconSvgModal = styled.img`
+  width: 25px;
 `;
 
 export default class Destaques extends React.Component {
@@ -75,7 +88,18 @@ export default class Destaques extends React.Component {
       },
     ],
     carouselModal: false,
+    starNum: 0,
     testState: 0,
+    RatingSettings: {
+      size: 40,
+      count: 5,
+      color: "white",
+      isHalf: true,
+      activeColor: " #228b22",
+      onChange: (newValue) => {
+        this.setState({ starNum: newValue });
+      },
+    },
   };
 
   render() {
@@ -106,18 +130,19 @@ export default class Destaques extends React.Component {
           >
             {/* // vvvvv carrosel visível */}
             {this.state.movies.map((item, i) => (
-              <Movie
-                key={i}
-                onClick={() => {
-                  this.setState({
-                    carouselModal: !this.state.carouselModal,
-                    testState: i,
-                  });
-                }}
-              >
+              <Movie>
                 <FavIconBox>
                   <FavIconSvg src={favbutton} />
-                  <Cover src={item.img} />
+                  <Cover
+                    src={item.img}
+                    key={i}
+                    onClick={() => {
+                      this.setState({
+                        carouselModal: !this.state.carouselModal,
+                        testState: i,
+                      });
+                    }}
+                  />
                 </FavIconBox>
                 <MovieTitle>{item.title}</MovieTitle>
                 <p>{item.overview}</p>
@@ -132,6 +157,7 @@ export default class Destaques extends React.Component {
                       content: {
                         display: "flex",
                         flexDirection: "column",
+                        justifyContent: "space-around",
                         backgroundColor: "black",
                         color: "white",
                         width: 450,
@@ -149,11 +175,30 @@ export default class Destaques extends React.Component {
                       },
                     }}
                   >
-                    <button>XXXX</button>
-                    <br />
-                    <img src={item.img} alt="Imagem do filme" />
-                    <li>{item.title}</li>
-                    <li>{item.overview}</li>
+                    <CloseHeaderModalBtn
+                      onClick={() => {
+                        this.setState({
+                          carouselModal: !this.state.carouselModal,
+                          testState: i,
+                        });
+                      }}
+                    >
+                      X
+                    </CloseHeaderModalBtn>
+                    <CarouselModalCover src={item.img} alt="Imagem do filme" />
+                    <ModalOptionsBox>
+                      <HasWatchedBtn>JÁ ASSISTI</HasWatchedBtn>{" "}
+                      <FavIconSvgModal src={optionsbutton} />
+                      <FavIconSvgModal src={favourite} />
+                    </ModalOptionsBox>
+                    <CarouselModalWrapper>
+                      <h3>{item.title}</h3>
+                      <li>{item.overview}</li>
+                    </CarouselModalWrapper>
+                    <RatingBox>
+                      <ReactStars {...this.state.RatingSettings} />
+                      <span>({this.state.starNum}/5)</span>
+                    </RatingBox>
                   </Modal>
                 )}
               </Movie>

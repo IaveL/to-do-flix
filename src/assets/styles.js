@@ -273,3 +273,31 @@ export const FavIconSvg = styled.img`
     cursor: pointer;
   }
 `;
+export const CarouselModalCover = styled.img`
+  width: 300px;
+  height: 190px;
+  position: relative;
+  left: 13%;
+  top: 0%;
+`;
+export const CarouselModalWrapper = styled.div`
+  padding: 1rem;
+`;
+export const ModalOptionsBox = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+  width: 45%;
+  :hover {
+    cursor: pointer;
+  }
+`;
+export const HasWatchedBtn = styled.button`
+  border-radius: 4px;
+  background-color: #393939;
+  border: none;
+  color: #fff;
+  width: 98px;
+  :hover {
+    cursor: pointer;
+  }
+`;
